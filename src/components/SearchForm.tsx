@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { getData } from 'country-list';
+
+const COUNTRIES = getData().sort((a, b) => a.name.localeCompare(b.name));
 
 interface Props {
   loading: boolean;
@@ -45,7 +48,12 @@ export default function SearchForm({ loading, onSearch, onClear }: Props) {
       <div className="filters">
         <input className="input" type="text" placeholder="Brand"    value={brand}    onChange={e => setBrand(e.target.value)} />
         <input className="input" type="text" placeholder="Category" value={category} onChange={e => setCategory(e.target.value)} />
-        <input className="input" type="text" placeholder="Country"  value={country}  onChange={e => setCountry(e.target.value)} />
+        <select className="input" value={country} onChange={e => setCountry(e.target.value)}>
+          <option value="">All countries</option>
+          {COUNTRIES.map(c => (
+            <option key={c.code} value={c.code}>{c.name}</option>
+          ))}
+        </select>
         <select
           className="input"
           value={limit}

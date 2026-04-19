@@ -248,11 +248,11 @@ body {
   font-size: 12px;
 }
 
-.kv { display: flex; gap: 5px; overflow: hidden; }
+.kv { display: flex; gap: 5px; overflow: hidden; align-items: baseline; }
 .kv-key { color: #94a3b8; flex-shrink: 0; }
 .kv-val { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.kv-full { grid-column: 1 / -1; }
-.kv-full .kv-val { white-space: normal; line-height: 1.5; }
+.kv-full { grid-column: 1 / -1; align-items: flex-start; }
+.kv-full .kv-val { white-space: normal; line-height: 1.6; overflow: visible; text-overflow: unset; }
 
 .card-toggle {
   font-size: 11px;
